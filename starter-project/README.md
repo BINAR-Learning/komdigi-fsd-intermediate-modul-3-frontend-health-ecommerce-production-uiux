@@ -1,336 +1,279 @@
-# 🎨 Health E-Commerce UI/UX - Starter Project
+# 🎨 Health E-Commerce - UI/UX Best Practices (STARTER)
 
-> **Frontend Modul 3: Responsive Design, Accessibility & Best Practices**
+> **Practice Project: Build production-ready UI dengan TODOs**
 
-[![React](https://img.shields.io/badge/React-18.3-blue)](https://react.dev/)
-[![TailwindCSS](https://img.shields.io/badge/Tailwind-3.4-cyan)](https://tailwindcss.com/)
-[![Ant Design](https://img.shields.io/badge/Ant_Design-5.12-blue)](https://ant.design/)
-[![Playwright](https://img.shields.io/badge/Playwright-1.40-green)](https://playwright.dev/)
-
-**Project untuk practice responsive design & accessibility!** (Dengan TODO yang jelas)
+**Goal:** Practice responsive design, accessibility, dark mode, dan advanced React patterns!
 
 ---
 
-## 📦 Apa Isi Project Ini?
+## 🎯 **What You'll Practice**
 
-Project ini adalah **starter template** untuk belajar:
-- ✅ **Responsive Design** - Mobile-first dengan Tailwind breakpoints
-- ✅ **Accessibility (a11y)** - Semantic HTML, ARIA labels, keyboard nav
+Di starter project ini, kamu akan implement:
+
+- ✅ **Theme Context** - Dark mode dengan localStorage persistence
+- ✅ **Cart Context** - Shopping cart management
+- ✅ **API Services** - Axios client, AI service, Payment service
 - ✅ **Error Boundaries** - Graceful error handling
-- ✅ **Loading States** - Skeleton screens untuk better UX
-- ✅ **Dark Mode** (optional) - Theme switching
-- ✅ **Playwright Testing** (intro) - Automated UI tests
-
-**Status:** ⚠️ **Incomplete** - Ada banyak TODO yang harus kamu selesaikan!
+- ✅ **Skeleton Loading** - Professional loading states
+- ✅ **Responsive Design** - Mobile-first approach
+- ✅ **Accessibility** - WCAG compliant
 
 ---
 
-## 🎯 Learning Objectives
-
-Dengan menyelesaikan TODO di project ini, kamu akan belajar:
-
-1. **Mobile-First Design** - Build untuk mobile dulu, scale up ke desktop
-2. **Tailwind Breakpoints** - Responsive utilities (sm:, md:, lg:, xl:)
-3. **Semantic HTML** - Use proper tags (nav, article, main)
-4. **ARIA Labels** - Screen reader support
-5. **Error Boundaries** - Catch component errors
-6. **Skeleton Screens** - Professional loading UX
-7. **Playwright Basics** - Write E2E tests
-
----
-
-## 🚀 Quick Start (Untuk Newbie)
-
-### Prerequisites
-
-**Wajib Running:**
-- ✅ **ULTIMATE Backend** di `http://localhost:5000`
-- ✅ **Sudah Selesai:** Frontend Modul 1 & 2
-
-```bash
-# Setup Backend (jika belum)
-cd ../../../Backend/Modul_5-External_API_Integration/finished-project
-npm install
-npm run seed
-npm run dev
-```
-
----
-
-### Setup Instructions
-
-```bash
-# 1. Clone repository (jika belum)
-git clone https://github.com/your-username/health-ecommerce-responsive-checkout.git
-cd health-ecommerce-responsive-checkout
-
-# 2. Masuk ke starter-project
-cd starter-project
-
-# 3. Install dependencies
-npm install
-# Tunggu 2-3 menit
-
-# 4. Start development server
-npm run dev
-
-# 5. Open browser
-# http://localhost:3000
-```
-
----
-
-## ⚠️ TODO List (Yang Harus Kamu Kerjakan)
-
-### 1. Responsive Design
-- [ ] Make Navbar responsive (hamburger menu mobile)
-- [ ] Responsive product grid (1 col mobile → 4 cols desktop)
-- [ ] Responsive hero section (stack mobile, side-by-side desktop)
-- [ ] Responsive typography (text-2xl md:text-3xl lg:text-4xl)
-
-### 2. Accessibility (a11y)
-- [ ] Add semantic HTML tags (nav, article, main)
-- [ ] Add ARIA labels untuk icons & buttons
-- [ ] Ensure keyboard navigation works
-- [ ] Add focus states (ring-2 ring-blue-500)
-
-### 3. Error Handling
-- [ ] Create ErrorBoundary component
-- [ ] Wrap routes dengan ErrorBoundary
-- [ ] Create fallback UI untuk errors
-
-### 4. Loading States
-- [ ] Create ProductCardSkeleton component
-- [ ] Show skeletons while loading
-- [ ] Progressive image loading
-
-### 5. Playwright Tests (Optional)
-- [ ] Install Playwright
-- [ ] Write test untuk homepage
-- [ ] Write test untuk shopping flow
-
----
-
-## 📁 Project Structure
+## 📁 **Project Structure**
 
 ```
 starter-project/
+├── package.json              ✅ All dependencies ready
+├── vite.config.js            ✅ Configured
+├── tailwind.config.js        ✅ Configured
 ├── src/
 │   ├── components/
-│   │   ├── ErrorBoundary.jsx      # ⚠️ TODO: Catch errors
-│   │   ├── ProductSkeleton.jsx    # ⚠️ TODO: Loading skeleton
-│   │   └── ResponsiveNavbar.jsx   # ⚠️ TODO: Mobile hamburger
+│   │   ├── ErrorBoundary.jsx      ⚠️ TODO: Implement error catcher
+│   │   └── ProductSkeleton.jsx    ⚠️ TODO: Create loading skeleton
+│   ├── context/
+│   │   ├── ThemeContext.jsx       ⚠️ TODO: Complete dark mode (4 TODOs)
+│   │   └── CartContext.jsx        ⚠️ TODO: Complete cart (8 TODOs)
+│   ├── services/
+│   │   ├── api.js                 ⚠️ TODO: Setup axios (5 TODOs)
+│   │   ├── aiService.js           ⚠️ TODO: AI integration (2 TODOs)
+│   │   └── paymentService.js      ⚠️ TODO: Payment integration (3 TODOs)
 │   ├── pages/
-│   │   ├── CheckoutPage.jsx       # ⚠️ TODO: Multi-step checkout
-│   │   └── ...                    # Reuse from Modul 2
-│   ├── utils/
-│   │   └── accessibility.js       # ⚠️ TODO: A11y helpers
-│   ├── App.jsx                    # ⚠️ TODO: Wrap dengan ErrorBoundary
-│   └── index.css                  # ⚠️ TODO: Dark mode styles
-├── tests/
-│   └── e2e/
-│       └── shopping.spec.js       # ⚠️ TODO: Playwright test
-└── package.json
+│   │   └── (From Modul 2)         ✅ Ready to use
+│   └── main.jsx                   ⚠️ TODO: Add providers
+└── README.md (This file!)
+```
+
+**Total TODOs:** 22 untuk kamu complete!
+
+---
+
+## 🚀 **Quick Start**
+
+### Step 1: Install Dependencies
+
+```bash
+cd starter-project
+npm install
+```
+
+### Step 2: Setup Environment
+
+```bash
+# Create .env file
+cp ../finished-project/env.example .env
+
+# Edit .env:
+# VITE_API_URL=http://localhost:5000
+```
+
+### Step 3: Ensure Backend Running
+
+```bash
+# Backend must be at http://localhost:5000
+curl http://localhost:5000/health
+# Should return: {"success":true}
+```
+
+### Step 4: Start Development Server
+
+```bash
+npm run dev
+```
+
+**Browser opens:** http://localhost:3000
+
+---
+
+## ✅ **Learning Path**
+
+### Task 1: Theme Context (Easy - 30 min)
+
+**File:** `src/context/ThemeContext.jsx`
+
+**TODOs:**
+- [ ] TODO 1: Initialize theme state
+- [ ] TODO 2: Load from localStorage
+- [ ] TODO 3: Implement toggleTheme
+- [ ] TODO 4: Create useTheme hook
+
+**Test:**
+```bash
+npm run dev
+# Add toggle button di navbar
+# Click → theme changes
+# Reload → theme persists
 ```
 
 ---
 
-## 🧪 How to Test
+### Task 2: Cart Context (Medium - 1 hour)
 
-### Test Responsive Design
+**File:** `src/context/CartContext.jsx`
 
-**Method 1: Browser DevTools**
-```
-1. Open browser (http://localhost:3000)
-2. Press F12 (DevTools)
-3. Click "Toggle device toolbar" (Ctrl+Shift+M)
-4. Test different devices:
-   - iPhone 13 (375px)
-   - iPad (768px)
-   - Desktop (1920px)
-```
+**TODOs:**
+- [ ] TODO 1: Initialize cart dari localStorage
+- [ ] TODO 2: Save to localStorage on changes
+- [ ] TODO 3: Implement addToCart
+- [ ] TODO 4: Implement removeFromCart
+- [ ] TODO 5: Implement updateQuantity
+- [ ] TODO 6: Implement clearCart
+- [ ] TODO 7: Implement getCartTotal
+- [ ] TODO 8: Implement getCartCount
 
-**Method 2: Resize Browser**
-- Drag browser window dari wide → narrow
-- Check navbar changes (hamburger appears)
-- Check grid changes (4 cols → 2 cols → 1 col)
-
----
-
-### Test Accessibility
-
-**Keyboard Navigation:**
-```
-1. Close mouse, use only keyboard
-2. Press Tab → Focus moves to next element
-3. Press Enter → Activates button/link
-4. Press Shift+Tab → Focus moves back
-5. Check: All interactive elements focusable!
-```
-
-**Screen Reader Test** (Windows):
-```
-1. Enable Narrator (Win+Ctrl+Enter)
-2. Navigate page dengan Tab
-3. Listen to announcements
-4. Check: All images have alt text!
+**Test:**
+```bash
+# Add product to cart
+# Check localStorage (DevTools → Application → Local Storage)
+# Reload page → cart persists
 ```
 
 ---
 
-### Test Error Boundary
+### Task 3: API Services (Medium - 1 hour)
 
-**Create intentional error:**
-```jsx
-// Add to any component
-if (someCondition) {
-  throw new Error('Test error!');
-}
-```
+**Files:**
+- `src/services/api.js` (5 TODOs)
+- `src/services/aiService.js` (2 TODOs)
+- `src/services/paymentService.js` (3 TODOs)
 
-**Expected:**
-- Error caught by ErrorBoundary ✅
-- Fallback UI shows ✅
-- App doesn't crash ✅
+**TODOs:**
+- [ ] api.js: Setup baseURL, interceptors
+- [ ] aiService.js: Implement sendChatMessage
+- [ ] paymentService.js: Implement createPayment, loadSnapScript
 
----
-
-## 🐛 Common Issues & Fixes
-
-### ❌ "Responsive classes not working"
-
-**Problem:** Tailwind config issue
-
-**Fix:**
-```js
-// tailwind.config.js - Check content paths
-content: [
-  "./index.html",
-  "./src/**/*.{js,jsx}",  // Must include all source files!
-],
+**Test:**
+```bash
+# Check browser console
+# Should fetch products successfully
+# No CORS errors
 ```
 
 ---
 
-### ❌ "Focus ring not showing"
+### Task 4: Error Boundaries (Easy - 20 min)
 
-**Problem:** Browser default outline removed
+**File:** `src/components/ErrorBoundary.jsx`
 
-**Fix:**
-```css
-/* index.css - Don't remove outline! */
-button:focus {
-  outline: 2px solid blue;  /* Or use Tailwind: focus:ring-2 */
-}
-```
+**TODO:**
+- [ ] Implement componentDidCatch
+- [ ] Show fallback UI on error
+- [ ] Add reset functionality
 
 ---
 
-### ❌ "Hamburger menu not closing"
+### Task 5: Skeleton Loading (Easy - 20 min)
 
-**Problem:** State not updating
+**File:** `src/components/ProductSkeleton.jsx`
 
-**Fix:**
-```jsx
-const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-// On link click:
-onClick={() => {
-  setMobileMenuOpen(false);  // Close menu
-  navigate('/path');
-}}
-```
+**TODO:**
+- [ ] Create skeleton card layout
+- [ ] Use Ant Design Skeleton component
+- [ ] Match ProductCard structure
 
 ---
 
-## 💡 Learning Tips
+## 💡 **Hints & Resources**
 
-**1. Mobile-First Mindset**
-- Design untuk mobile dulu (320px width)
-- Add breakpoints untuk larger screens
-- Test on real devices jika memungkinkan
+### React Context Pattern:
 
-**2. Use Lighthouse**
-```
-1. Open DevTools
-2. Go to "Lighthouse" tab
-3. Run audit (Mobile + Accessibility)
-4. Target: 90+ score untuk accessibility!
-```
-
-**3. Test dengan Real Users**
-- Ask friend untuk navigate dengan keyboard only
-- Ask someone test on mobile phone
-- Get feedback on UX
-
----
-
-## 💡 Challenge untuk Peserta
-
-### Challenge #1: Implement Dark Mode
-
-Add theme toggle functionality:
-- Create ThemeContext
-- Toggle light/dark mode
-- Persist theme ke localStorage
-- Use Tailwind dark: prefix
-
-**Hint:**
-```jsx
-<div className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
-```
-
----
-
-### Challenge #2: Add Loading Skeletons
-
-Create skeleton screens untuk better perceived performance:
-- ProductCardSkeleton component
-- Show while data fetching
-- Match actual ProductCard layout
-
-**Hint:**
-```jsx
-<div className="bg-gray-300 h-48 rounded animate-pulse"></div>
-```
-
----
-
-### Challenge #3: Write Playwright Test
-
-Test complete shopping flow:
 ```javascript
-test('user can add product to cart', async ({ page }) => {
-  await page.goto('http://localhost:3000');
-  await page.click('text=Products');
-  await page.click('button:has-text("Tambah")').first();
-  // Assert cart badge updated
-});
+// Create context
+const MyContext = createContext();
+
+// Provider
+export function MyProvider({ children }) {
+  const [state, setState] = useState(initial);
+  return (
+    <MyContext.Provider value={{ state, setState }}>
+      {children}
+    </MyContext.Provider>
+  );
+}
+
+// Custom hook
+export function useMyContext() {
+  const context = useContext(MyContext);
+  if (!context) throw new Error('Must be within Provider');
+  return context;
+}
+```
+
+### localStorage Pattern:
+
+```javascript
+// Save
+localStorage.setItem('key', JSON.stringify(data));
+
+// Load
+const data = JSON.parse(localStorage.getItem('key') || '[]');
 ```
 
 ---
 
-## 🚀 Next Steps
+## 🐛 **Troubleshooting**
 
-After completing all TODOs:
+### "Cannot connect to backend"
+```bash
+# Check backend running:
+curl http://localhost:5000/health
 
-1. ✅ **Test on mobile device** - Real phone/tablet
-2. ✅ **Run Lighthouse audit** - Aim for 90+ accessibility
-3. ✅ **Compare dengan finished-project** - See best practices
-4. ✅ **Try challenges** - Extend functionality
-5. ➡️ **Common Modul 1** - Testing Suite
+# Check .env file:
+cat .env
+# Should show: VITE_API_URL=http://localhost:5000
+```
+
+### "Theme not persisting"
+```javascript
+// Check localStorage in DevTools
+// Application → Local Storage
+// Should have 'theme' key
+```
+
+### "Cart not updating"
+```javascript
+// Check console for errors
+// Verify CartProvider wraps App
+// Check localStorage for 'cart' key
+```
 
 ---
 
-**Happy Coding! Make it responsive & accessible! 🎨♿**
+## ✅ **Success Criteria**
 
-_Accessibility benefits everyone, not just disabled users!_
+You're done when:
+
+- ✅ All 22 TODOs completed
+- ✅ Dark mode works dan persists
+- ✅ Cart adds/removes items dan persists
+- ✅ API calls succeed (check network tab)
+- ✅ No console errors
+- ✅ All features functional
+- ✅ Ready for finished-project comparison!
 
 ---
 
-**📁 Repository Info:**
-- **Name:** `health-ecommerce-responsive-checkout`
-- **Type:** UI/UX Best Practices (Starter)
-- **Backend:** `localhost:5000`
-- **Level:** Intermediate-Advanced
+## 📚 **Resources**
 
+- [React Context API](https://react.dev/reference/react/useContext)
+- [Axios Documentation](https://axios-http.com/docs/intro)
+- [Ant Design Components](https://ant.design/components/overview)
+- **Compare:** `../finished-project/` untuk reference
+
+---
+
+## 🚀 **Next Steps**
+
+After completing:
+
+1. ✅ Test all features manually
+2. ✅ Compare dengan finished-project
+3. ✅ Add AI chatbot component (bonus!)
+4. ➡️ Common Modul 1: Add E2E tests
+
+---
+
+**Build amazing UI! 🎨✨**
+
+_Starter Project - Frontend Modul 3_  
+_Practice UI/UX with TODOs_
