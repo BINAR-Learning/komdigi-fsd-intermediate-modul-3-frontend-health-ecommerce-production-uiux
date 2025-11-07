@@ -18,6 +18,8 @@ import OrderSuccessPage from './pages/OrderSuccessPage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import ProfilePage from './pages/ProfilePage'
+import OrderHistoryPage from './pages/OrderHistoryPage'
+import OrderDetailPage from './pages/OrderDetailPage'
 
 const { Content } = Layout
 
@@ -59,6 +61,16 @@ function App() {
                 <Route path="/order-success" element={
                   <ProtectedRoute>
                     <OrderSuccessPage />
+                  </ProtectedRoute>
+                } />
+                <Route path="/orders" element={
+                  <ProtectedRoute>
+                    <OrderHistoryPage />
+                  </ProtectedRoute>
+                } />
+                <Route path="/orders/:orderId" element={
+                  <ProtectedRoute>
+                    <OrderDetailPage />
                   </ProtectedRoute>
                 } />
               </Routes>

@@ -60,22 +60,52 @@ export const createPayment = async (orderData) => {
 
     const response = await apiClient.post('/api/external/payment/create', payload);
 
-    // Handle response
-    if (response.data.success && response.data.data) {
+    // Comprehensive logging
+    console.log('📥 Payment API Full Response:', {
+      status: response.status,
+      statusText: response.statusText,
+      dataType: typeof response.data,
+      dataSuccess: response.data?.success,
+      hasDataField: 'data' in (response.data || {}),
+      responseDataKeys: response.data ? Object.keys(response.data) : [],
+      fullResponseData: response.data,
+    });
+
+    // Handle multiple possible response structures
+    let paymentUrl = null;
+    let token = null;
+
+    // Structure 1: { success: true, data: { paymentUrl, token } }
+    if (response.data?.success && response.data?.data) {
+      paymentUrl = response.data.data.paymentUrl || response.data.data.redirectUrl;
+      token = response.data.data.token;
+      console.log('✅ Structure 1: success + data field');
+    }
+    // Structure 2: { success: true, paymentUrl, token } (flat structure)
+    else if (response.data?.success) {
+      paymentUrl = response.data.paymentUrl || response.data.redirectUrl;
+      token = response.data.token;
+      console.log('✅ Structure 2: flat structure');
+    }
+    // Structure 3: Direct response { token, redirect_url }
+    else if (response.data?.token || response.data?.redirect_url) {
+      paymentUrl = response.data.redirect_url || response.data.redirectUrl;
+      token = response.data.token;
+      console.log('✅ Structure 3: direct Midtrans response');
+    }
+
+    if (paymentUrl) {
+      console.log('✅ Payment URL found:', paymentUrl);
       return {
         success: true,
-        paymentUrl: response.data.data.paymentUrl || response.data.data.redirectUrl,
-        token: response.data.data.token,
+        paymentUrl,
+        token,
       };
-    } else {
-      // Handle error response from backend
-      const errorMessage = response.data.message || 'Payment creation failed';
-      const errorDetails = response.data.details || '';
-      
-      throw new Error(
-        errorMessage + (errorDetails ? `\n${errorDetails}` : '')
-      );
     }
+
+    // If we reach here, payment URL not found in any structure
+    console.error('❌ Payment URL not found in response:', response.data);
+    throw new Error('Payment URL not found in response. Backend may have returned unexpected format.');
   } catch (error) {
     console.error('Payment Service Error:', error);
     

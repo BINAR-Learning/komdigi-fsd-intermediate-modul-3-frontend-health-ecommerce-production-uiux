@@ -9,6 +9,9 @@ import './index.css'
 // TODO: Add ThemeProvider untuk dark mode support
 // import { ThemeProvider } from './context/ThemeContext'
 
+// TODO: Add AuthProvider untuk authentication
+// import { AuthProvider } from './context/AuthContext'
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -23,10 +26,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        {/* TODO: Wrap dengan ThemeProvider */}
+        {/* TODO: Wrap dengan ThemeProvider dan AuthProvider */}
+        {/* <ThemeProvider> */}
+        {/*   <AuthProvider> */}
         <CartProvider>
           <App />
         </CartProvider>
+        {/*   </AuthProvider> */}
+        {/* </ThemeProvider> */}
       </QueryClientProvider>
     </BrowserRouter>
   </React.StrictMode>,

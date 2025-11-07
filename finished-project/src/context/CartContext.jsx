@@ -28,8 +28,16 @@ export function CartProvider({ children }) {
           }
         } catch (error) {
           console.error('Failed to fetch cart:', error);
-          // If fetch fails, clear cart
-          setCart([]);
+          
+          // Handle 404 (cart endpoint not found) - fallback to localStorage
+          if (error.response?.status === 404) {
+            console.warn('Cart API not available, using localStorage');
+            const saved = localStorage.getItem('cart');
+            setCart(saved ? JSON.parse(saved) : []);
+          } else {
+            // Other errors - clear cart
+            setCart([]);
+          }
         } finally {
           setLoading(false);
         }
@@ -78,8 +86,27 @@ export function CartProvider({ children }) {
           }
         }
       } catch (error) {
-        console.error('Failed to add to cart:', error);
-        throw error;
+        console.error('Failed to add to cart via API:', error);
+        
+        // Fallback to localStorage if API fails
+        if (error.response?.status === 404) {
+          console.warn('Cart API not available, using localStorage fallback');
+          setCart((prevCart) => {
+            const existingItem = prevCart.find((item) => item._id === product._id);
+            
+            if (existingItem) {
+              return prevCart.map((item) =>
+                item._id === product._id
+                  ? { ...item, quantity: item.quantity + 1 }
+                  : item
+              );
+            }
+            
+            return [...prevCart, { ...product, quantity: 1 }];
+          });
+        } else {
+          throw error;
+        }
       }
     } else {
       // Not authenticated - use localStorage

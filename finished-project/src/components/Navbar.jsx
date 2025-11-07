@@ -11,6 +11,7 @@ import {
   UserOutlined,
   LogoutOutlined,
   LoginOutlined,
+  ShoppingOutlined,
 } from '@ant-design/icons';
 import { useCart } from '../context/CartContext';
 import { useTheme } from '../context/ThemeContext';
@@ -40,6 +41,12 @@ function Navbar() {
       icon: <UserOutlined />,
       label: 'Profile',
       onClick: () => navigate('/profile'),
+    },
+    {
+      key: 'orders',
+      icon: <ShoppingOutlined />,
+      label: 'Riwayat Pesanan',
+      onClick: () => navigate('/orders'),
     },
     {
       type: 'divider',
@@ -73,6 +80,11 @@ function Navbar() {
       ),
       label: <Link to="/cart">Cart</Link>,
     },
+    ...(isLoggedIn ? [{
+      key: 'orders',
+      icon: <ShoppingOutlined />,
+      label: <Link to="/orders">Riwayat Pesanan</Link>,
+    }] : []),
   ];
 
   return (
