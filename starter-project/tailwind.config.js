@@ -1,13 +1,15 @@
-/** @type {import('tailwindcss').Config} */
+/** 
+ * Tailwind CSS Configuration
+ * Most configuration is done via CSS @theme directive in index.css
+ * This file only contains content paths for JIT compilation
+ * 
+ * Dark mode: Use [data-theme="dark"] selector in CSS
+ */
+
 export default {
-  darkMode: 'class', // Enable dark mode
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
 }
 

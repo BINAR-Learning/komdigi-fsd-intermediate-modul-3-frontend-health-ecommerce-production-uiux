@@ -10,10 +10,8 @@
  * Reference: ../finished-project/src/index.css
  */
 
-/* TODO: Import Tailwind */
-/* @tailwind base; */
-/* @tailwind components; */
-/* @tailwind utilities; */
+/* TODO: Import Tailwind CSS */
+/* @import "tailwindcss"; */
 
 /* TODO: CSS Variables untuk Theme */
 /* :root { */

@@ -4,7 +4,7 @@
 
 [![React](https://img.shields.io/badge/React-18.3-blue)](https://react.dev/)
 [![Ant Design](https://img.shields.io/badge/Ant_Design-5.12-cyan)](https://ant.design/)
-[![TailwindCSS](https://img.shields.io/badge/Tailwind-3.4-blue)](https://tailwindcss.com/)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind-4.0-blue)](https://tailwindcss.com/)
 [![Playwright](https://img.shields.io/badge/Playwright-1.41-green)](https://playwright.dev/)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 

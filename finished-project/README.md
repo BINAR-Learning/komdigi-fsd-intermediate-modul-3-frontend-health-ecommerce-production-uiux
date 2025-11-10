@@ -352,7 +352,7 @@ finished-project/
 - **React Router 6.21** - Multi-page routing
 - **TanStack Query 5.17** - Smart caching & data fetching
 - **Ant Design 5.12** - Professional UI components
-- **TailwindCSS 3.4** - Utility-first CSS
+- **TailwindCSS 4.0** - Utility-first CSS
 
 ### Backend Integration
 - **Google Gemini AI** - Product recommendations
