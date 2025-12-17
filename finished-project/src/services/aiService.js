@@ -27,7 +27,6 @@ export const sendChatMessage = async (message, context = 'health_product_recomme
 
     return response.data;
   } catch (error) {
-    console.error('AI Service Error:', error);
     throw new Error(
       error.message || 'Gagal menghubungi AI chatbot. Pastikan backend berjalan dan GEMINI_API_KEY terkonfigurasi.'
     );
@@ -48,7 +47,6 @@ export const getProductRecommendations = async (query) => {
 
     return response;
   } catch (error) {
-    console.error('Get Recommendations Error:', error);
     throw error;
   }
 };
@@ -62,7 +60,6 @@ const fetchProductDetails = async (productId) => {
     const response = await apiClient.get(`/api/products/${productId}`);
     return response.data.data;
   } catch (error) {
-    console.error('Failed to fetch product details:', error);
     return null;
   }
 };
@@ -93,7 +90,6 @@ export const formatAIResponse = async (response) => {
         const productId = product._id || product.id || product.productId;
         
         if (!productId) {
-          console.warn('Product missing ID:', product);
           return null;
         }
 
@@ -139,7 +135,6 @@ export const formatAIResponse = async (response) => {
       products: formattedProducts.filter(Boolean) // Remove any null products
     };
   } catch (error) {
-    console.error('Format AI Response Error:', error);
     return {
       message: 'Maaf, terjadi kesalahan dalam memproses rekomendasi.',
       products: []

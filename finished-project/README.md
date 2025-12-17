@@ -40,21 +40,68 @@
 
 ### Prerequisites
 
-**WAJIB Running:**
+**WAJIB Running Backend dari Modul 5:**
+
+PENTING: Frontend ini memerlukan backend dari Modul 5 yang sudah complete. Pastikan backend running sebelum menjalankan frontend.
+
 ```bash
-# 1. Backend API (localhost:5000)
-cd ../../health-ecommerce-external-integration/finished-project
+# 1. Navigate ke Backend Modul 5 (Final Backend Project)
+cd ../../backend/health-ecommerce-external-integration/finished-project
+
+# 2. Install dependencies
 npm install
+
+# 3. Setup .env file dengan API keys yang diperlukan:
+# Buat file .env di folder finished-project backend
+# Isi dengan:
+# PORT=5000
+# MONGODB_URI=mongodb://localhost:27017/health_ecommerce
+# JWT_SECRET=your_jwt_secret_key
+# GEMINI_API_KEY=your_google_gemini_api_key
+# MIDTRANS_SERVER_KEY=your_midtrans_server_key
+# MIDTRANS_CLIENT_KEY=your_midtrans_client_key
+# CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+# CLOUDINARY_API_KEY=your_cloudinary_api_key
+# CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+
+# 4. Pastikan MongoDB running
+# Opsi A: Jika menggunakan MongoDB Compass atau MongoDB Atlas
+# - Buka MongoDB Compass
+# - Connect ke database: mongodb://localhost:27017
+# - Atau gunakan connection string dari MongoDB Atlas
+# Opsi B: Jika ingin menggunakan mongod command
+# - Buka terminal baru
+# - Jalankan: mongod
+# - Pastikan MongoDB service running
+
+# 5. Seed database dengan sample data
 npm run seed
+
+# 6. Start backend server (keep running di terminal ini!)
 npm run dev
-# Backend ready at http://localhost:5000
+
+# Backend akan running di: http://localhost:5000
+# Pastikan backend URL ini sama dengan VITE_API_URL di frontend .env
 ```
+
+**VERIFIKASI BACKEND:**
+```bash
+# Test backend health endpoint
+curl http://localhost:5000/health
+
+# Jika berhasil, akan return: { "status": "ok" }
+```
+
+**PENTING:**
+- Backend HARUS running di http://localhost:5000 sebelum menjalankan frontend
+- Pastikan .env di frontend memiliki: VITE_API_URL=http://localhost:5000
+- Jika backend running di port lain, update VITE_API_URL sesuai dengan port backend yang digunakan
 
 ### Run Frontend
 
 ```bash
 # 1. Masuk ke finished-project
-cd health-ecommerce-production-uiux/finished-project
+cd komdigi-fsd-intermediate-modul-3-health-ecommerce-production-uiux/finished-project
 
 # 2. Install dependencies
 npm install
@@ -593,7 +640,7 @@ Improve Lighthouse score to 100:
 
 ---
 
-**Repository:** `health-ecommerce-production-uiux/finished-project`  
+**Repository:** `komdigi-fsd-intermediate-modul-3-health-ecommerce-production-uiux/finished-project`  
 **Backend:** `localhost:5000` (ULTIMATE Backend)  
 **Status:** Deploy-worthy!
 

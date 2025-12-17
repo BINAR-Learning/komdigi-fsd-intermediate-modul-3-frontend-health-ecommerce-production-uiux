@@ -49,7 +49,6 @@ apiClient.interceptors.response.use(
   (error) => {
     // Handle network errors
     if (!error.response) {
-      console.error('Network Error:', error.message);
       return Promise.reject({
         message: 'Tidak dapat terhubung ke server. Pastikan backend berjalan di ' + baseURL
       });

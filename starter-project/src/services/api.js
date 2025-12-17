@@ -88,7 +88,6 @@ try {
   // Handle success
 } catch (error) {
   // Error already formatted by interceptor
-  console.error(error.message);
 }
 
 NEXT STEPS:

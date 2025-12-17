@@ -53,3 +53,33 @@
 // TODO: Export
 // export default App;
 
+// Minimal App component untuk starter (akan diganti dengan implementasi lengkap)
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-8">
+      <div className="max-w-2xl w-full bg-white rounded-lg shadow-lg p-8 text-center">
+        <h1 className="text-3xl font-bold text-gray-800 mb-4">
+          Health E-Commerce - Starter Project
+        </h1>
+        <p className="text-gray-600 mb-6">
+          Ini adalah starter template untuk belajar. Silakan implementasikan App component sesuai dengan TODO comments di file ini.
+        </p>
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-left">
+          <h2 className="font-semibold text-blue-800 mb-2">Langkah selanjutnya:</h2>
+          <ol className="list-decimal list-inside space-y-2 text-blue-700 text-sm">
+            <li>Buka file <code className="bg-blue-100 px-2 py-1 rounded">src/App.jsx</code></li>
+            <li>Ikuti TODO comments untuk implementasi</li>
+            <li>Lihat <code className="bg-blue-100 px-2 py-1 rounded">../finished-project/src/App.jsx</code> sebagai reference</li>
+            <li>Setup routes, providers, dan components sesuai kebutuhan</li>
+          </ol>
+        </div>
+        <p className="text-sm text-gray-500 mt-6">
+          Baca README.md untuk instruksi lengkap
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+

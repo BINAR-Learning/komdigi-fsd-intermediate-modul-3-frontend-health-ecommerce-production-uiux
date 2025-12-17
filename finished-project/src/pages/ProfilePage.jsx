@@ -82,7 +82,6 @@ function ProfilePage() {
       message.success('Profile berhasil diupdate!');
     } catch (error) {
       message.error(error.message || 'Gagal update profile');
-      console.error('Update profile error:', error);
     } finally {
       setLoading(false);
     }

@@ -63,13 +63,70 @@ starter-project/
 
 ##  Quick Start
 
+### Prerequisites: Setup Backend (WAJIB Running)
+
+PENTING: Frontend ini memerlukan backend dari Modul 5 yang sudah complete. Pastikan backend running sebelum menjalankan frontend.
+
+```bash
+# 1. Navigate ke Backend Modul 5 (Final Backend Project)
+cd ../../backend/health-ecommerce-external-integration/finished-project
+
+# 2. Install dependencies
+npm install
+
+# 3. Setup .env file dengan API keys yang diperlukan:
+# Buat file .env di folder finished-project backend
+# Isi dengan:
+# PORT=5000
+# MONGODB_URI=mongodb://localhost:27017/health_ecommerce
+# JWT_SECRET=your_jwt_secret_key
+# GEMINI_API_KEY=your_google_gemini_api_key
+# MIDTRANS_SERVER_KEY=your_midtrans_server_key
+# MIDTRANS_CLIENT_KEY=your_midtrans_client_key
+# CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+# CLOUDINARY_API_KEY=your_cloudinary_api_key
+# CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+
+# 4. Pastikan MongoDB running
+# Opsi A: Jika menggunakan MongoDB Compass atau MongoDB Atlas
+# - Buka MongoDB Compass
+# - Connect ke database: mongodb://localhost:27017
+# - Atau gunakan connection string dari MongoDB Atlas
+# Opsi B: Jika ingin menggunakan mongod command
+# - Buka terminal baru
+# - Jalankan: mongod
+# - Pastikan MongoDB service running
+
+# 5. Seed database dengan sample data
+npm run seed
+
+# 6. Start backend server (keep running di terminal ini!)
+npm run dev
+
+# Backend akan running di: http://localhost:5000
+# Pastikan backend URL ini sama dengan VITE_API_URL di frontend .env
+```
+
+**VERIFIKASI BACKEND:**
+```bash
+# Test backend health endpoint
+curl http://localhost:5000/health
+
+# Jika berhasil, akan return: { "status": "ok" }
+```
+
+**PENTING:**
+- Backend HARUS running di http://localhost:5000 sebelum menjalankan frontend
+- Pastikan .env di frontend memiliki: VITE_API_URL=http://localhost:5000
+- Jika backend running di port lain, update VITE_API_URL sesuai dengan port backend yang digunakan
+
 ### Step 1: Install Dependencies
 
 ```bash
 npm install
 ```
 
-### Step 2: Setup Environment Variables (Optional)
+### Step 2: Setup Environment Variables
 
 ```bash
 # Buat .env file
@@ -82,6 +139,8 @@ touch .env
 ```env
 VITE_API_URL=http://localhost:5000
 ```
+
+**PENTING:** Pastikan URL ini sama dengan backend yang sedang running!
 
 ### Step 3: Start Development Server
 
@@ -360,9 +419,9 @@ Setelah starter project selesai:
 
 ** Repository Info:**
 
-- **Name:** `health-ecommerce-production-uiux/starter-project`
+- **Name:** `komdigi-fsd-intermediate-modul-3-health-ecommerce-production-uiux/starter-project`
 - **Type:** Starter Template (untuk practice)
-- **Finished Version:** `health-ecommerce-production-uiux/finished-project`
+- **Finished Version:** `komdigi-fsd-intermediate-modul-3-health-ecommerce-production-uiux/finished-project`
 
 _Frontend Modul 3 - UI/UX (Starter)_  
 _Health E-Commerce Frontend Series_

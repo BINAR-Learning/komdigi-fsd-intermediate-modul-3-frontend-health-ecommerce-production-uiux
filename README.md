@@ -1,6 +1,6 @@
-# health-ecommerce-production-uiux
+# komdigi-fsd-intermediate-modul-3-health-ecommerce-production-uiux
 
-> **Production-Ready E-Commerce dengan Responsive Design, Accessibility & Automated Testing**
+> Production-Ready E-Commerce dengan Responsive Design, Accessibility & Automated Testing
 
 [![React](https://img.shields.io/badge/React-18.3-blue)](https://react.dev/)
 [![Ant Design](https://img.shields.io/badge/Ant_Design-5.12-cyan)](https://ant.design/)
@@ -17,7 +17,7 @@ Complete production-ready e-commerce dengan responsive design, accessibility fea
 Module ini berisi **2 versi project** untuk belajar UI/UX best practices:
 
 ```
-health-ecommerce-production-uiux/
+komdigi-fsd-intermediate-modul-3-health-ecommerce-production-uiux/
 ├── README.md (Ini file yang kamu baca)
 ├── starter-project/     #  Untuk practice (dengan TODO)
 │   ├── README.md
@@ -87,26 +87,62 @@ Sebelum mulai, pastikan:
 - **Node.js v20+** installed
 - **Sudah selesai** Frontend Modul 1 & 2
 
-** Setup Backend (jika belum):**
+** Setup Backend (WAJIB Running):**
+
+PENTING: Frontend ini memerlukan backend dari Modul 5 yang sudah complete. Pastikan backend running sebelum menjalankan frontend.
 
 ```bash
-# Navigate ke Backend Modul 5
-cd ../../Backend/Modul_5-External_API_Integration/finished-project
+# 1. Navigate ke Backend Modul 5 (Final Backend Project)
+cd ../../backend/health-ecommerce-external-integration/finished-project
 
-# Install dependencies
+# 2. Install dependencies
 npm install
 
-# Setup .env dengan API keys:
-# GEMINI_API_KEY=your_google_api_key
-# MIDTRANS_SERVER_KEY=your_midtrans_key
+# 3. Setup .env file dengan API keys yang diperlukan:
+# Buat file .env di folder finished-project backend
+# Isi dengan:
+# PORT=5000
+# MONGODB_URI=mongodb://localhost:27017/health_ecommerce
+# JWT_SECRET=your_jwt_secret_key
+# GEMINI_API_KEY=your_google_gemini_api_key
+# MIDTRANS_SERVER_KEY=your_midtrans_server_key
+# MIDTRANS_CLIENT_KEY=your_midtrans_client_key
+# CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+# CLOUDINARY_API_KEY=your_cloudinary_api_key
+# CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 
-# Seed database
+# 4. Pastikan MongoDB running
+# Opsi A: Jika menggunakan MongoDB Compass atau MongoDB Atlas
+# - Buka MongoDB Compass
+# - Connect ke database: mongodb://localhost:27017
+# - Atau gunakan connection string dari MongoDB Atlas
+# Opsi B: Jika ingin menggunakan mongod command
+# - Buka terminal baru
+# - Jalankan: mongod
+# - Pastikan MongoDB service running
+
+# 5. Seed database dengan sample data
 npm run seed
 
-# Start server (keep running!)
+# 6. Start backend server (keep running di terminal ini!)
 npm run dev
-# → Backend ready di http://localhost:5000
+
+# Backend akan running di: http://localhost:5000
+# Pastikan backend URL ini sama dengan VITE_API_URL di frontend .env
 ```
+
+**VERIFIKASI BACKEND:**
+```bash
+# Test backend health endpoint
+curl http://localhost:5000/health
+
+# Jika berhasil, akan return: { "status": "ok" }
+```
+
+**PENTING:**
+- Backend HARUS running di http://localhost:5000 sebelum menjalankan frontend
+- Pastikan .env di frontend memiliki: VITE_API_URL=http://localhost:5000
+- Jika backend running di port lain, update VITE_API_URL sesuai dengan port backend yang digunakan
 
 ---
 
@@ -114,10 +150,10 @@ npm run dev
 
 ```bash
 # 1. Clone repository ini
-git clone https://github.com/your-username/health-ecommerce-production-uiux.git
+git clone https://github.com/your-username/komdigi-fsd-intermediate-modul-3-health-ecommerce-production-uiux.git
 
 # 2. Masuk ke folder repository
-cd health-ecommerce-production-uiux
+cd komdigi-fsd-intermediate-modul-3-health-ecommerce-production-uiux
 
 # 3. Masuk ke starter-project
 cd starter-project
@@ -670,7 +706,7 @@ _Part of Health E-Commerce Frontend Series_
 
 ** Repository Info:**
 
-- **Name:** `health-ecommerce-production-uiux`
+- **Name:** `komdigi-fsd-intermediate-modul-3-health-ecommerce-production-uiux`
 - **Type:** Production-Ready Frontend
 - **Backend:** Requires `localhost:5000` (ULTIMATE Backend)
 - **Structure:** 1 Repo, 2 Folders (starter + finished)

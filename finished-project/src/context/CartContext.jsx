@@ -27,11 +27,8 @@ export function CartProvider({ children }) {
             setCart(response.data.data || []);
           }
         } catch (error) {
-          console.error('Failed to fetch cart:', error);
-          
           // Handle 404 (cart endpoint not found) - fallback to localStorage
           if (error.response?.status === 404) {
-            console.warn('Cart API not available, using localStorage');
             const saved = localStorage.getItem('cart');
             setCart(saved ? JSON.parse(saved) : []);
           } else {
@@ -86,11 +83,8 @@ export function CartProvider({ children }) {
           }
         }
       } catch (error) {
-        console.error('Failed to add to cart via API:', error);
-        
         // Fallback to localStorage if API fails
         if (error.response?.status === 404) {
-          console.warn('Cart API not available, using localStorage fallback');
           setCart((prevCart) => {
             const existingItem = prevCart.find((item) => item._id === product._id);
             
@@ -133,7 +127,6 @@ export function CartProvider({ children }) {
         await apiClient.delete(`/api/cart/${productId}`);
         setCart((prevCart) => prevCart.filter((item) => item._id !== productId));
       } catch (error) {
-        console.error('Failed to remove from cart:', error);
         throw error;
       }
     } else {
@@ -158,7 +151,6 @@ export function CartProvider({ children }) {
           )
         );
       } catch (error) {
-        console.error('Failed to update quantity:', error);
         throw error;
       }
     } else {
@@ -178,7 +170,6 @@ export function CartProvider({ children }) {
         await apiClient.delete('/api/cart');
         setCart([]);
       } catch (error) {
-        console.error('Failed to clear cart:', error);
         // Clear locally anyway
         setCart([]);
       }
@@ -197,7 +188,6 @@ export function CartProvider({ children }) {
           setCart(response.data.data || []);
         }
       } catch (error) {
-        console.error('Failed to refresh cart:', error);
       }
     }
   };

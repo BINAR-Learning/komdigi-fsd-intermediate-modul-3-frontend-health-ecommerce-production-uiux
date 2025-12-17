@@ -30,7 +30,6 @@ export const register = async (userData) => {
     
     throw new Error(response.data.message || 'Registrasi gagal');
   } catch (error) {
-    console.error('Register Error:', error);
     throw new Error(
       error.response?.data?.message || 
       error.message || 
@@ -66,7 +65,6 @@ export const login = async (email, password) => {
     
     throw new Error(response.data.message || 'Login gagal');
   } catch (error) {
-    console.error('Login Error:', error);
     throw new Error(
       error.response?.data?.message || 
       error.message || 
@@ -99,7 +97,6 @@ export const getProfile = async () => {
     
     throw new Error('Failed to get profile');
   } catch (error) {
-    console.error('Get Profile Error:', error);
     throw error;
   }
 };
@@ -134,7 +131,6 @@ export const updateProfile = async (formData) => {
     
     throw new Error(response.data.message || 'Update profile gagal');
   } catch (error) {
-    console.error('Update Profile Error:', error);
     throw new Error(
       error.response?.data?.message || 
       error.message || 

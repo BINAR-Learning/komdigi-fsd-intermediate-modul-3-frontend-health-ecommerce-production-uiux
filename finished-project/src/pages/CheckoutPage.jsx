@@ -91,17 +91,7 @@ function CheckoutPage() {
 
       const paymentResponse = await createPayment(paymentData);
 
-      // Debug logging
-      console.log('CreatePayment result:', {
-        success: paymentResponse?.success,
-        hasPaymentUrl: !!paymentResponse?.paymentUrl,
-        paymentUrl: paymentResponse?.paymentUrl,
-        allKeys: paymentResponse ? Object.keys(paymentResponse) : [],
-      });
-
       if (paymentResponse && paymentResponse.success && paymentResponse.paymentUrl) {
-        // Open Midtrans payment page in same tab (will redirect back via callbacks)
-        console.log(' Redirecting to payment URL:', paymentResponse.paymentUrl);
         
         // Save order info to localStorage (for after payment redirect)
         localStorage.setItem('pending_order', JSON.stringify({
@@ -124,16 +114,9 @@ function CheckoutPage() {
         window.location.href = paymentResponse.paymentUrl;
       } else {
         // Payment URL not found
-        console.error(' Payment URL missing in response:', paymentResponse);
         message.error('Payment URL tidak ditemukan. Silakan coba lagi atau hubungi customer service.');
       }
     } catch (error) {
-      console.error('Payment error caught:', error);
-      console.error('Error details:', {
-        message: error.message,
-        response: error.response?.data,
-        stack: error.stack,
-      });
       
       const errorMessage = error.response?.data?.message || error.message || 'Payment gagal. Silakan coba lagi.';
       message.error('Payment failed: ' + errorMessage);

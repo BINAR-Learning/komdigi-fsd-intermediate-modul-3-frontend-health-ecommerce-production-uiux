@@ -13,22 +13,10 @@ function OrderSuccessPage() {
   const statusCode = searchParams.get('status_code');
 
   useEffect(() => {
-    // Log redirect info
-    console.log(' Redirected from Midtrans:', {
-      orderId,
-      transactionStatus,
-      statusCode,
-      allParams: Object.fromEntries(searchParams.entries()),
-    });
-
     // Check if this is from a successful payment
     if (orderId && (transactionStatus === 'settlement' || transactionStatus === 'capture')) {
       // Clear pending order from localStorage
       localStorage.removeItem('pending_order');
-      
-      // Optionally clear cart (payment confirmed)
-      // Note: Better to do this via webhook in real production
-      console.log(' Payment confirmed, order can be processed');
     }
   }, [orderId, transactionStatus, statusCode, searchParams]);
 

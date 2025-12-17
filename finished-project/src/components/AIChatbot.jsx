@@ -40,20 +40,10 @@ function AIChatbot({ visible, onClose }) {
 
     // Ensure product has _id for cart matching
     if (!product._id) {
-      console.error('Product missing _id:', product);
       message.error('Error: Produk tidak valid. Silakan coba lagi.');
       return;
     }
 
-    // Log untuk debugging
-    console.log('Adding to cart:', {
-      _id: product._id,
-      name: product.name,
-      price: product.price,
-      hasId: !!product._id,
-      hasName: !!product.name,
-      hasPrice: !!product.price
-    });
 
     addToCart(product);
     message.success(` ${product.name} ditambahkan ke keranjang!`);
@@ -73,19 +63,6 @@ function AIChatbot({ visible, onClose }) {
       const response = await getProductRecommendations(inputMessage);
       const formatted = await formatAIResponse(response);
 
-      // Debug: Log formatted products
-      console.log('AI Response formatted:', {
-        message: formatted.message,
-        productsCount: formatted.products?.length,
-        products: formatted.products?.map(p => ({
-          _id: p._id,
-          name: p.name,
-          price: p.price,
-          hasId: !!p._id,
-          hasName: !!p.name,
-          hasPrice: !!p.price
-        }))
-      });
 
       // Add AI response
       const aiMsg = {

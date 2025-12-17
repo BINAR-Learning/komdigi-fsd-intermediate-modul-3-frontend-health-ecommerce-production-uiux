@@ -48,28 +48,9 @@ export const createPayment = async (orderData) => {
       customerPhone: orderData.customerPhone || '',
     };
 
-    // Log request for debugging
-    console.log('Creating payment with payload:', {
-      orderId: payload.orderId,
-      amount: payload.amount,
-      itemsCount: payload.items.length,
-      items: payload.items.map(i => ({ name: i.name, price: i.price, quantity: i.quantity })),
-      customerName: payload.customerName,
-      customerEmail: payload.customerEmail
-    });
 
     const response = await apiClient.post('/api/external/payment/create', payload);
 
-    // Comprehensive logging
-    console.log(' Payment API Full Response:', {
-      status: response.status,
-      statusText: response.statusText,
-      dataType: typeof response.data,
-      dataSuccess: response.data?.success,
-      hasDataField: 'data' in (response.data || {}),
-      responseDataKeys: response.data ? Object.keys(response.data) : [],
-      fullResponseData: response.data,
-    });
 
     // Handle multiple possible response structures
     let paymentUrl = null;
@@ -79,23 +60,19 @@ export const createPayment = async (orderData) => {
     if (response.data?.success && response.data?.data) {
       paymentUrl = response.data.data.paymentUrl || response.data.data.redirectUrl;
       token = response.data.data.token;
-      console.log(' Structure 1: success + data field');
     }
     // Structure 2: { success: true, paymentUrl, token } (flat structure)
     else if (response.data?.success) {
       paymentUrl = response.data.paymentUrl || response.data.redirectUrl;
       token = response.data.token;
-      console.log(' Structure 2: flat structure');
     }
     // Structure 3: Direct response { token, redirect_url }
     else if (response.data?.token || response.data?.redirect_url) {
       paymentUrl = response.data.redirect_url || response.data.redirectUrl;
       token = response.data.token;
-      console.log(' Structure 3: direct Midtrans response');
     }
 
     if (paymentUrl) {
-      console.log(' Payment URL found:', paymentUrl);
       return {
         success: true,
         paymentUrl,
@@ -104,10 +81,8 @@ export const createPayment = async (orderData) => {
     }
 
     // If we reach here, payment URL not found in any structure
-    console.error(' Payment URL not found in response:', response.data);
     throw new Error('Payment URL not found in response. Backend may have returned unexpected format.');
   } catch (error) {
-    console.error('Payment Service Error:', error);
     
     // Enhanced error handling
     if (error.response) {
@@ -136,7 +111,6 @@ export const createPayment = async (orderData) => {
  */
 export const openSnapPayment = (snapToken, onSuccess, onPending, onError) => {
   if (!window.snap) {
-    console.error('Midtrans Snap.js not loaded');
     if (onError) {
       onError(new Error('Midtrans Snap.js belum dimuat. Silakan refresh halaman.'));
     }
@@ -145,19 +119,15 @@ export const openSnapPayment = (snapToken, onSuccess, onPending, onError) => {
 
   window.snap.pay(snapToken, {
     onSuccess: (result) => {
-      console.log('Payment Success:', result);
       if (onSuccess) onSuccess(result);
     },
     onPending: (result) => {
-      console.log('Payment Pending:', result);
       if (onPending) onPending(result);
     },
     onError: (result) => {
-      console.error('Payment Error:', result);
       if (onError) onError(result);
     },
     onClose: () => {
-      console.log('Payment popup closed');
     }
   });
 };
