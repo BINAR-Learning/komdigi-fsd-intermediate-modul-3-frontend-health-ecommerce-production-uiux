@@ -419,9 +419,9 @@ Setelah starter project selesai:
 
 ** Repository Info:**
 
-- **Name:** `komdigi-fsd-intermediate-modul-3-health-ecommerce-production-uiux/starter-project`
+- **Name:** `komdigi-fsd-intermediate-modul-3-frontend-health-ecommerce-production-uiux/starter-project`
 - **Type:** Starter Template (untuk practice)
-- **Finished Version:** `komdigi-fsd-intermediate-modul-3-health-ecommerce-production-uiux/finished-project`
+- **Finished Version:** `komdigi-fsd-intermediate-modul-3-frontend-health-ecommerce-production-uiux/finished-project`
 
 _Frontend Modul 3 - UI/UX (Starter)_  
 _Health E-Commerce Frontend Series_

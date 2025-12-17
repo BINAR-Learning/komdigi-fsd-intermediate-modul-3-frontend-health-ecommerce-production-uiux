@@ -101,7 +101,7 @@ curl http://localhost:5000/health
 
 ```bash
 # 1. Masuk ke finished-project
-cd komdigi-fsd-intermediate-modul-3-health-ecommerce-production-uiux/finished-project
+cd komdigi-fsd-intermediate-modul-3-frontend-health-ecommerce-production-uiux/finished-project
 
 # 2. Install dependencies
 npm install
@@ -640,7 +640,7 @@ Improve Lighthouse score to 100:
 
 ---
 
-**Repository:** `komdigi-fsd-intermediate-modul-3-health-ecommerce-production-uiux/finished-project`  
+**Repository:** `komdigi-fsd-intermediate-modul-3-frontend-health-ecommerce-production-uiux/finished-project`  
 **Backend:** `localhost:5000` (ULTIMATE Backend)  
 **Status:** Deploy-worthy!
 

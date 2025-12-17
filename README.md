@@ -1,4 +1,4 @@
-# komdigi-fsd-intermediate-modul-3-health-ecommerce-production-uiux
+# komdigi-fsd-intermediate-modul-3-frontend-health-ecommerce-production-uiux
 
 > Production-Ready E-Commerce dengan Responsive Design, Accessibility & Automated Testing
 
@@ -17,7 +17,7 @@ Complete production-ready e-commerce dengan responsive design, accessibility fea
 Module ini berisi **2 versi project** untuk belajar UI/UX best practices:
 
 ```
-komdigi-fsd-intermediate-modul-3-health-ecommerce-production-uiux/
+komdigi-fsd-intermediate-modul-3-frontend-health-ecommerce-production-uiux/
 ├── README.md (Ini file yang kamu baca)
 ├── starter-project/     #  Untuk practice (dengan TODO)
 │   ├── README.md
@@ -150,10 +150,10 @@ curl http://localhost:5000/health
 
 ```bash
 # 1. Clone repository ini
-git clone https://github.com/your-username/komdigi-fsd-intermediate-modul-3-health-ecommerce-production-uiux.git
+git clone https://github.com/your-username/komdigi-fsd-intermediate-modul-3-frontend-health-ecommerce-production-uiux.git
 
 # 2. Masuk ke folder repository
-cd komdigi-fsd-intermediate-modul-3-health-ecommerce-production-uiux
+cd komdigi-fsd-intermediate-modul-3-frontend-health-ecommerce-production-uiux
 
 # 3. Masuk ke starter-project
 cd starter-project
@@ -706,7 +706,7 @@ _Part of Health E-Commerce Frontend Series_
 
 ** Repository Info:**
 
-- **Name:** `komdigi-fsd-intermediate-modul-3-health-ecommerce-production-uiux`
+- **Name:** `komdigi-fsd-intermediate-modul-3-frontend-health-ecommerce-production-uiux`
 - **Type:** Production-Ready Frontend
 - **Backend:** Requires `localhost:5000` (ULTIMATE Backend)
 - **Structure:** 1 Repo, 2 Folders (starter + finished)
